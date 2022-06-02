@@ -4,6 +4,8 @@ import { fetchTodos, fetchParticularTodo } from "../store/todo-actions";
 
 import { useState } from "react";
 
+import { useAuth } from "../../route/Auth";
+
 // import "./Todo.css";
 
 import Accordion from "@mui/material/Accordion";
@@ -17,6 +19,8 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import { useNavigate } from "react-router-dom";
+import Button from "@mui/material/Button";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -53,6 +57,13 @@ function a11yProps(index: number) {
 
 const Todo = () => {
   const [value, setValue] = React.useState(0);
+  const auth=useAuth();
+  const navigate = useNavigate();
+
+  function handleLogout() {
+    auth.logout();
+    navigate("/login");
+  }
 
   const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -88,8 +99,10 @@ const Todo = () => {
             onChange={handleChange}
             aria-label="basic tabs example"
           >
-            <Tab label="Search Task" {...a11yProps(0)} />
-            <Tab label="List All Tasks" {...a11yProps(1)} />
+            <Tab sx={{color:'brown'}} label="Search Task" {...a11yProps(0)} />
+            <Tab sx={{color:'brown'}} label="List All Tasks" {...a11yProps(1)} />
+            <Button variant="contained"  sx={{color:'white', fontSize:'15px', margin:'auto',  }} onClick={handleLogout}> Logout</Button>
+
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>

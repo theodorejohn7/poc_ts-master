@@ -6,7 +6,11 @@ import {
   CardContent,
   CardHeader,
 } from "@mui/material";
+import Todo from "../Redux/Todo/Todo";
 import { TextField } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../route/Auth";
+import Welcome from "./Welcome";
 
 type State = {
   username: string;
@@ -52,6 +56,9 @@ const reducer = (state: State, action: Action): State => {
 const Login = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  let navigate = useNavigate();
+  const auth = useAuth();
+
   useEffect(() => {
     if (state.username.trim() && state.password.trim()) {
       dispatch({
@@ -64,25 +71,33 @@ const Login = () => {
   }, [state.username, state.password]);
 
   const handleLogin = () => {
-    let data = JSON.parse(localStorage.getItem('all_users_db'));
+    let data = JSON.parse(localStorage.getItem("all_users_db"));
+    console.log("data",data);
+    const curr_data = data.find(({ username }) => username === state.username);
+    console.log("curr_data",curr_data);
 
 
 
     if (data === null) {
-    
       dispatch({
         type: "loginFailed",
-        payload: "No Username Registered",
+        payload: "No Username Registered in Database",
       });
-    } else {
-      const curr_data = data.find(({ username }) => username === state.username);
-   
-      console.log('Curr data', curr_data);
-
+    }else if (!curr_data) {
+      dispatch({
+        type: "loginFailed",
+        payload: "Username is not Registered in Database",
+      });
     }
+    else if (
+      state.username === curr_data.username &&
+      state.password === curr_data.password
+    ) {
+      auth.login(curr_data.username);
 
+      navigate("/welcome");
+      <Welcome />;
 
-    if (state.username === curr_data.username && state.password === curr_data.password) {
       dispatch({
         type: "loginSuccess",
         payload: "Login Successfully",
@@ -90,7 +105,7 @@ const Login = () => {
     } else {
       dispatch({
         type: "loginFailed",
-        payload: "Incorrect username or password",
+        payload: "Password doesnot match Please Try again",
       });
     }
   };
@@ -130,8 +145,7 @@ const Login = () => {
           borderRadius: "25px",
           marginTop: "30px",
           padding: "10px",
-          boxShadow: '0px 0px 20px 13px rgba(25,150,210,0.62)',
-
+          boxShadow: "0px 0px 20px 13px rgba(25,150,210,0.62)",
         }}
       >
         <CardHeader title="Login App" />

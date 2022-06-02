@@ -66,7 +66,24 @@ const RegisterApp = () => {
     //   console.log([snapshot.val()])
     // })
 
-    localStorage.setItem("data", JSON.stringify(values)); //store colors
+    // localStorage.setItem("data", JSON.stringify(values)); //store colors
+
+    let a = JSON.parse(localStorage.getItem("all_users_db"));
+
+    if (JSON.parse(localStorage.getItem("all_users_db")) === null) {
+      // localStorage.setItem("all_users_db", JSON.stringify([values]));
+      a = [values];
+    } else {
+      console.log("inside else");
+      a.push(values);
+      // (JSON.parse(localStorage.getItem("all_users_db"))).push([values]);
+
+        
+    }
+
+    // localStorage.setItem('all_users_db', (JSON.stringify((JSON.parse(localStorage.getItem("all_users_db"))))));
+
+    localStorage.setItem('all_users_db', JSON.stringify(a));
 
     actions.setSubmitting(false);
     setActiveStep((prev) => prev + 1);
@@ -95,15 +112,14 @@ const RegisterApp = () => {
             margin: "auto",
             border: "3px solid cyan",
             borderRadius: "25px",
-            boxShadow: '0px 0px 25px 10px rgba(255,255,255,1)',
-            marginTop:'40px',
-            marginBottom:'30px'
+            boxShadow: "0px 0px 25px 10px rgba(255,255,255,1)",
+            marginTop: "40px",
+            marginBottom: "30px",
           }}
         >
           <Box>
             <Typography
-              sx={{ margin: "0.5vh 5vh 2vh 5vh",
-            }}
+              sx={{ margin: "0.5vh 5vh 2vh 5vh" }}
               component="h1"
               variant="h4"
               align="center"
