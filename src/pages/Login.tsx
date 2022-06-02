@@ -64,7 +64,25 @@ const Login = () => {
   }, [state.username, state.password]);
 
   const handleLogin = () => {
-    if (state.username === "test@test.com" && state.password === "123123") {
+    let data = JSON.parse(localStorage.getItem('all_users_db'));
+
+
+
+    if (data === null) {
+    
+      dispatch({
+        type: "loginFailed",
+        payload: "No Username Registered",
+      });
+    } else {
+      const curr_data = data.find(({ username }) => username === state.username);
+   
+      console.log('Curr data', curr_data);
+
+    }
+
+
+    if (state.username === curr_data.username && state.password === curr_data.password) {
       dispatch({
         type: "loginSuccess",
         payload: "Login Successfully",
