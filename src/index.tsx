@@ -9,7 +9,6 @@ import { Provider } from 'react-redux';
 import store from './Redux/store'
 import { theme } from "./styles/theme.styles";
 import { BrowserRouter } from "react-router-dom";
-import Signup from "./Signup";
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
@@ -18,8 +17,7 @@ root.render(
     <Provider store={store}>
     <BrowserRouter>
     <ThemeProvider theme={theme}>
-      {/* <App /> */}
-      <Signup />
+      <App />
     </ThemeProvider>
     </BrowserRouter>
 </Provider>
