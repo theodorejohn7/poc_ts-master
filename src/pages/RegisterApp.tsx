@@ -10,7 +10,7 @@ import StepLabel from "@mui/material/StepLabel";
 import { Wrapper } from "../components/layout";
 import { useState } from "react";
 import validationSchema from "../utils/validationSchema";
-import { getDatabase, ref, onValue } from 'firebase/database'
+import { getDatabase, ref, onValue } from "firebase/database";
 import { doc, getDoc } from "firebase/firestore";
 
 import { AddressForm } from "../components/organisms/forms";
@@ -21,7 +21,7 @@ import { CircularProgress } from "@mui/material";
 import CheckoutSuccess from "../components/organisms/forms/checkoutSuccess";
 import CredentialForm from "../components/organisms/forms/credentialForm";
 import ReviewDetails from "../components/organisms/review";
-import database from "../database/Firebase"
+import database from "../database/Firebase";
 const { formField } = formModel;
 const renderStepContent = (step: number) => {
   switch (step) {
@@ -29,7 +29,7 @@ const renderStepContent = (step: number) => {
       return <AddressForm formField={formField} />;
 
     case 1:
-      return <CredentialForm  formField={formField} />;
+      return <CredentialForm formField={formField} />;
 
     case 2:
       return <ReviewDetails />;
@@ -54,23 +54,19 @@ const RegisterApp = () => {
   ) => {
     // await sleep(1000);
 
-    database
-    .ref(values.username)
-    .set({
-      ...values
-    })
+    database.ref(values.username).set({
+      ...values,
+    });
 
     // await sleep (1000);
     // const db = getDatabase()
 
-     
     // const data = ref(db, 'Final-form') // CHANGE 'chars' TO YOUR DATABASE NAME
     // onValue(data, (snapshot) => {
     //   console.log([snapshot.val()])
     // })
 
     localStorage.setItem("data", JSON.stringify(values)); //store colors
-
 
     actions.setSubmitting(false);
     setActiveStep((prev) => prev + 1);
@@ -92,70 +88,84 @@ const RegisterApp = () => {
   return (
     <>
       <Wrapper>
-        <Typography
-          sx={{ margin: "15vh 5vh 2vh 5vh" }}
-          component="h1"
-          variant="h4"
-          align="center"
+        <Box
+          sx={{
+            width: "120vh",
+            padding: "25px",
+            margin: "auto",
+            border: "5px solid cyan",
+            borderRadius: "25px",
+            boxShadow: '0px 0px 25px 10px rgba(255,255,255,1)',
+            marginTop:'40px'
+          }}
         >
-          Registration Form
-        </Typography>
-        <Box sx={{ width: "100%" }}>
-          <Stepper
-            sx={
-              {
-                // backgroundColor: 'success.main',
-                // color:'black'
-              }
-            }
-            activeStep={activeStep}
-            // alternativeLabel
-          >
-            {steps.map((label) => (
-              <Step key={label}>
-                <StepLabel>{label}</StepLabel>
-              </Step>
-            ))}
-          </Stepper>
-        </Box>
+          <Box>
+            <Typography
+              sx={{ margin: "0.5vh 5vh 2vh 5vh",
+            }}
+              component="h1"
+              variant="h4"
+              align="center"
+            >
+              Registration Form
+            </Typography>
+            <Box sx={{ width: "100%" }}>
+              <Stepper
+                sx={
+                  {
+                    // backgroundColor: 'success.main',
+                    // color:'black'
+                  }
+                }
+                activeStep={activeStep}
+                // alternativeLabel
+              >
+                {steps.map((label) => (
+                  <Step key={label}>
+                    <StepLabel>{label}</StepLabel>
+                  </Step>
+                ))}
+              </Stepper>
+            </Box>
 
-        {activeStep === steps.length ? (
-          <CheckoutSuccess />
-        ) : (
-          <Formik
-            initialValues={initialValues}
-            validationSchema={selectedValidationSchema}
-            onSubmit={handleSubmit}
-          >
-            {(formikProps) => (
-              <Form>
-                {renderStepContent(activeStep)}
-                <br />
-                <br />
-                <div>
-                  {activeStep <= 2 && (
-                    <Button onClick={() => setActiveStep((prev) => prev - 1)}>
-                      Back
-                    </Button>
-                  )}
+            {activeStep === steps.length ? (
+              <CheckoutSuccess />
+            ) : (
+              <Formik
+                initialValues={initialValues}
+                validationSchema={selectedValidationSchema}
+                onSubmit={handleSubmit}
+              >
+                {(formikProps) => (
+                  <Form>
+                    {renderStepContent(activeStep)}
+                    <br />
+                    <br />
+                    <div>
+                      {activeStep <= 2 && (
+                        <Button
+                          onClick={() => setActiveStep((prev) => prev - 1)}
+                        >
+                          Back
+                        </Button>
+                      )}
 
-                  
-                    <Button
-                      type="submit"
-                      variant="contained"
-                      color="primary"
-                      // disabled={formikProps.isSubmitting}
-                    >
-                      { isLast ? "Register" : "Next"}
-
-                    </Button>
-                    {formikProps.isSubmitting && <CircularProgress />}
-                   
-                </div>
-              </Form>
+                      <Button
+                        type="submit"
+                        variant="contained"
+                        color="primary"
+                        // disabled={formikProps.isSubmitting}
+                      >
+                        {isLast ? "Register" : "Next"}
+                      </Button>
+                      {formikProps.isSubmitting && <CircularProgress />}
+                    </div>
+                  </Form>
+                )}
+              </Formik>
             )}
-          </Formik>
-        )}
+          </Box>
+        </Box>
       </Wrapper>
     </>
   );
