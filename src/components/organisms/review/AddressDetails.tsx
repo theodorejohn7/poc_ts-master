@@ -8,7 +8,6 @@ function AddressDetails(props) {
       firstName,
       lastName,
       address1,
-      address2,
       city,
       state,
       pincode,
@@ -22,9 +21,7 @@ function AddressDetails(props) {
         Address Details
       </Typography>
       <Typography gutterBottom>{`Name : ${firstName} ${lastName}`} </Typography>
-      <Typography
-        gutterBottom
-      >{`Address : ${address1} ${address2} `}</Typography>
+      <Typography gutterBottom>{`Address : ${address1}  `}</Typography>
       <Typography gutterBottom>{`City : ${city}`} </Typography>
       <Typography gutterBottom> {`State : ${state}`} </Typography>
       <Typography gutterBottom> {`Pincode : ${pincode}`} </Typography>

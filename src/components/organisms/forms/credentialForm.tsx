@@ -3,6 +3,7 @@ import { FormikValues } from "formik";
 
 import { InputField } from "../../atoms/formFields";
 import { Grid, Typography } from "@mui/material";
+import PasswordField from "../../atoms/formFields/PasswordField";
 
 
 
@@ -31,7 +32,8 @@ const CredentialForm: FC<PropsType> = (props)=>{
                 </Grid>
 
                 <Grid item xs={12} md={6}>
-                <InputField
+                <PasswordField
+                
                 defaultProps={{
                     name:password.name,
                     label:password.label,
@@ -40,7 +42,7 @@ const CredentialForm: FC<PropsType> = (props)=>{
                 </Grid>
 
                 <Grid item xs={12} md={6}>
-                <InputField
+                <PasswordField
                 defaultProps={{
                     name:confirmPassword.name,
                     label:confirmPassword.label,

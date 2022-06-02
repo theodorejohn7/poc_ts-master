@@ -7,6 +7,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.App {
+  text-align: center;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -56,6 +59,7 @@ code {
   align-items: center;
   justify-content: space-between;
   width: 100%;
+   
 }
 .header-nav {
   display: flex;
@@ -63,6 +67,7 @@ code {
   flex-direction: row;
   flex: 1 1 0%;
   padding-left: 2rem;
+ 
 }
 
 .header-logo {
