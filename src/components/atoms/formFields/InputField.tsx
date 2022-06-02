@@ -1,7 +1,7 @@
-import { TextField, TextFieldProps } from "@mui/material";
+import { FormHelperText, TextField, TextFieldProps } from "@mui/material";
 import { useField } from "formik";
 import React, { FC } from "react";
-import { at } from "lodash";
+import { at, isError } from "lodash";
 
 interface PropsType {
   errorText?: string;
@@ -12,10 +12,15 @@ const InputField: FC<PropsType> = (props) => {
   const { errorText, ...restProps } = props;
   const [field, meta] = useField(props.defaultProps.name);
 
+  const [touched, error] = at(meta, "touched", "error");
+
+  const isFieldError: boolean = touched && error && true;
+
   const renderHelperText = () => {
     const [touched, error] = at(meta, "touched", "error");
+
     if (touched && error) {
-      return error;
+      return <FormHelperText>{error}</FormHelperText>;
     }
   };
 
@@ -25,6 +30,7 @@ const InputField: FC<PropsType> = (props) => {
 
       <TextField
         type="text"
+        error={isFieldError ? true : false}
         helperText={renderHelperText()}
         {...field}
         {...restProps.defaultProps}

@@ -1,6 +1,6 @@
-import * as yup from "yup"
+import * as yup from "yup";
 // import moment from "moment"
-import formModel from "./formModel"
+import formModel from "./formModel";
 const {
   formField: {
     firstName,
@@ -13,7 +13,7 @@ const {
     password,
     confirmPassword,
   },
-} = formModel
+} = formModel;
 
 export default [
   yup.object().shape({
@@ -24,6 +24,7 @@ export default [
     [pincode.name]: yup
       .string()
       .required(`${pincode.requiredErrorMsg}`)
+      .matches(/^[0-9]+$/, "Pincode must contain only digits")
       .test(
         "len",
         `${pincode.invalidErrorMsg}`,
@@ -34,5 +35,4 @@ export default [
       .nullable()
       .required(`${country.requiredErrorMsg}`),
   }),
-   
-]
+];

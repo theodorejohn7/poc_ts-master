@@ -19,11 +19,11 @@ function App() {
 
         <Routes>
           <Route path="/" />
-          {/* <Route path="*" element={<NotFound />} /> */}
+     
           <Route
             path="login"
             element={<Login />}
-            // element={<PrivateRoute roles={[ROLE.ADMIN]} component={Dashboard} />}
+         
           />
           <Route path="register" element={<RegisterApp />} />
 
