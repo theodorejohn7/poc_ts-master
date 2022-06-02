@@ -93,10 +93,11 @@ const RegisterApp = () => {
             width: "120vh",
             padding: "25px",
             margin: "auto",
-            border: "5px solid cyan",
+            border: "3px solid cyan",
             borderRadius: "25px",
             boxShadow: '0px 0px 25px 10px rgba(255,255,255,1)',
-            marginTop:'40px'
+            marginTop:'40px',
+            marginBottom:'30px'
           }}
         >
           <Box>

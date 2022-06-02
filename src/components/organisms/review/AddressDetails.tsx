@@ -4,7 +4,7 @@ import React from "react";
 
 function AddressDetails(props){
     const {
-        formValues: { firstName, lastName, address1,address2,city,state,zipcode,country},
+        formValues: { firstName, lastName, address1,address2,city,state,pincode,country},
     } = props
 
     return(
@@ -16,7 +16,7 @@ function AddressDetails(props){
             <Typography gutterBottom>{`Address : ${address1} ${address2} `}</Typography>
             <Typography gutterBottom>{`City : ${city}`} </Typography>
             <Typography gutterBottom> {`State : ${state}`}  </Typography>
-            <Typography gutterBottom> {`Pincode : ${zipcode}`}  </Typography>
+            <Typography gutterBottom> {`Pincode : ${pincode}`}  </Typography>
             <Typography gutterBottom> {`Country : ${country}`}  </Typography>
 
             

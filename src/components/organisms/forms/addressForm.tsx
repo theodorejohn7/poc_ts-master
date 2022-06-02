@@ -21,7 +21,7 @@ const AddressForm: FC<PropsType> = (props) => {
       address2,
       city,
       state,
-      zipcode,
+      pincode,
       country,
      
     },
@@ -90,8 +90,8 @@ const AddressForm: FC<PropsType> = (props) => {
         <Grid item xs={12} sm={6}>
           <InputField
             defaultProps={{
-              name: zipcode.name,
-              label: zipcode.label,
+              name: pincode.name,
+              label: pincode.label,
               fullWidth: true,
             }}
           />
@@ -118,16 +118,52 @@ const cities = [
       label: "None",
     },
     {
-      value: "New York",
-      label: "New York",
+      value: "Ahmedabad",
+      label: "Ahmedabad",
     },
     {
-      value: "Chicago",
-      label: "Chicago",
+      value: "Bangalore",
+      label: "Bangalore",
     },
     {
-      value: "Saigon",
-      label: "Saigon",
+      value: "Chennai",
+      label: "Chennai",
+    },
+    {
+      value: "Cochin",
+      label: "Cochin",
+    },
+    {
+      value: "Delhi",
+      label: "Delhi",
+    },
+    {
+      value: "Hyderabad",
+      label: "Hyderabad",
+    },
+    {
+      value: "Jaipur",
+      label: "Jaipur",
+    },
+    {
+      value: "Madurai",
+      label: "Madurai",
+    },
+    {
+      value: "Trichy",
+      label: "Trichy",
+    },
+    {
+      value: "Kolkata",
+      label: "Kolkata",
+    },
+    {
+      value: "Mumbai",
+      label: "Mumbai",
+    },
+    {
+      value: "Nagpur",
+      label: "Nagpur",
     },
   ]
   
@@ -137,16 +173,40 @@ const cities = [
       label: "None",
     },
     {
-      value: "Florida",
-      label: "Florida",
+      value: "Delhi",
+      label: "Delhi",
     },
     {
-      value: "Michigan",
-      label: "Michigan",
+      value: "Gujarat",
+      label: "Gujarat",
     },
     {
-      value: "Texas",
-      label: "Texas",
+      value: "Karnataka",
+      label: "Karnataka",
+    },
+    {
+      value: "Kerala",
+      label: "Kerala",
+    },
+    {
+      value: "Maharashtra",
+      label: "Maharashtra",
+    },
+    {
+      value: "Orissa",
+      label: "Orissa",
+    },
+    {
+      value: "Puducherry",
+      label: "Puducherry",
+    },
+    {
+      value: "Tamil Nadu",
+      label: "Tamil Nadu",
+    },
+    {
+      value: "Uttarakhand",
+      label: "Uttarakhand",
     },
   ]
   
@@ -155,17 +215,18 @@ const cities = [
       value: null,
       label: "None",
     },
+
+    {
+      value: "India",
+      label: "India",
+    },
     {
       value: "United States",
       label: "United States",
     },
     {
-      value: "Italy",
-      label: "Italy",
-    },
-    {
-      value: "Vietnam",
-      label: "Vietnam",
+      value: "China",
+      label: "China",
     },
   ]
   

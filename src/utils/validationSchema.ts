@@ -1,5 +1,5 @@
 import * as yup from "yup"
-import moment from "moment"
+// import moment from "moment"
 import formModel from "./formModel"
 const {
   formField: {
@@ -7,7 +7,7 @@ const {
     lastName,
     address1,
     city,
-    zipcode,
+    pincode,
     country,
     username,
     password,
@@ -15,20 +15,19 @@ const {
   },
 } = formModel
 
-const visaRegEx = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/
 export default [
   yup.object().shape({
     [firstName.name]: yup.string().required(firstName.requiredErrorMsg),
     [lastName.name]: yup.string().required(`${lastName.requiredErrorMsg}`),
     [address1.name]: yup.string().required(`${address1.requiredErrorMsg}`),
     [city.name]: yup.string().nullable().required(`${city.requiredErrorMsg}`),
-    [zipcode.name]: yup
+    [pincode.name]: yup
       .string()
-      .required(`${zipcode.requiredErrorMsg}`)
+      .required(`${pincode.requiredErrorMsg}`)
       .test(
         "len",
-        `${zipcode.invalidErrorMsg}`,
-        (val) => val && val.length === 5
+        `${pincode.invalidErrorMsg}`,
+        (val) => val && val.length === 6
       ),
     [country.name]: yup
       .string()
