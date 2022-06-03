@@ -5,23 +5,31 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 import { ThemeProvider } from "@mui/system";
-import { Provider } from 'react-redux';
-import store from './Redux/store'
+import { Provider } from "react-redux";
+import store from "./Redux/store";
 import { theme } from "./styles/theme.styles";
 import { BrowserRouter } from "react-router-dom";
+import TodoAnt from "./Redux/Todo/TodoAnt"
+import Todo from "./Redux/Todo/Todo";
+import Antd1 from "./Redux/Todo/Antd1";
+
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <Provider store={store}>
-    <BrowserRouter>
-    <ThemeProvider theme={theme}>
-      <App />
-    </ThemeProvider>
-    </BrowserRouter>
-</Provider>
-  </React.StrictMode>
+      <BrowserRouter>
+        <ThemeProvider theme={theme}>
+          {/* <App /> */}
+
+          {/* <Antd1 /> */}
+          <TodoAnt />
+        {/* <Todo /> */}
+        </ThemeProvider>
+      </BrowserRouter>
+    </Provider>
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
