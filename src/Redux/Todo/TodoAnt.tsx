@@ -1,6 +1,6 @@
-// import 'antd/dist/antd.css'; //DEFAULT CSS
+import "antd/dist/antd.css"; //DEFAULT CSS
 
-import '../../antd/main.css' //CUSTOM CSS
+// import "../../antd/main.css"; //CUSTOM CSS
 
 import { useAppDispatch, useAppselector } from "../hooks/redux-hooks";
 
@@ -17,7 +17,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-
+import { TableAntd } from "../../antd/customComponents/TableAntd";
 import * as React from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
@@ -26,6 +26,8 @@ import Box from "@mui/material/Box";
 import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 import Table from "antd/lib/table";
+import { DatePicker } from "antd";
+import { DatePickerAntd } from "../../antd/customComponents/DatePickerAntd";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -33,35 +35,26 @@ interface TabPanelProps {
   value: number;
 }
 
-
 const columns = [
-    {
-      title: 'Id',
-      dataIndex: 'id',
-      key: 'id',
-      width: 'auto',
-
-     
-    },
-    {
-      title: 'Todo',
-      dataIndex: 'todo',
-      key: 'todo',
-      width: 'auto',
-
-    },
-    {
-      title: 'User',
-      dataIndex: 'userId',
-      key: 'userId',
-      width: 'auto',
-
-    },
-    
-     
-  ];
-
-
+  {
+    title: "Id",
+    dataIndex: "id",
+    key: "id",
+    width: "auto",
+  },
+  {
+    title: "Todo",
+    dataIndex: "todo",
+    key: "todo",
+    width: "auto",
+  },
+  {
+    title: "User",
+    dataIndex: "userId",
+    key: "userId",
+    width: "auto",
+  },
+];
 
 function TabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
@@ -92,7 +85,7 @@ function a11yProps(index: number) {
 
 const TodoAnt = () => {
   const [value, setValue] = React.useState(0);
-  const auth=useAuth();
+  const auth = useAuth();
   const navigate = useNavigate();
 
   function handleLogout() {
@@ -126,14 +119,24 @@ const TodoAnt = () => {
     return true;
   };
   return (
-    <>
-<h1>Welcome</h1>
-<button onClick={clickHandler}> List All Tasks</button> 
+    <div style={{ marginLeft: "15px" }}>
+      <h1>Welcome</h1>
+      <button onClick={clickHandler}> List All Tasks</button>
 
+      <h2 style={{ marginTop: "75px" }}>Custom Date Picker</h2>
+      <DatePickerAntd />
+      <br />
+      <h2>AntD Date Picker</h2>
+      <DatePicker />
 
-  <Table style={{width:'500px',marginTop:'20px',margin:'auto'}} bordered   size='small' columns={checkTodo() &&columns} dataSource={alltodos} />
-          
-    </>
+      <h2 style={{ marginTop: "75px" }}>Custom Table Component</h2>
+      <TableAntd columns={columns} data={alltodos} />
+      <br />
+
+      <h2>AntD Table Component</h2>
+
+      <Table columns={checkTodo() && columns} dataSource={alltodos} />
+    </div>
   );
 };
 export default TodoAnt;

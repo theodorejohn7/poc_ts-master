@@ -12,6 +12,10 @@ import { BrowserRouter } from "react-router-dom";
 import TodoAnt from "./Redux/Todo/TodoAnt"
 import Todo from "./Redux/Todo/Todo";
 import Antd1 from "./Redux/Todo/Antd1";
+import AntTest from "./test/AntTest";
+import { DatePickerAntd } from "./antd/customComponents/DatePickerAntd";
+
+import { DatePicker as AntdDatePicker } from "antd";  
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -23,7 +27,9 @@ root.render(
         <ThemeProvider theme={theme}>
           <App />
 
-       
+{/* <AntTest /> */}
+{/* <TodoAnt /> */}
+       {/* <AntdDatePicker /> */}
         </ThemeProvider>
       </BrowserRouter>
     </Provider>
