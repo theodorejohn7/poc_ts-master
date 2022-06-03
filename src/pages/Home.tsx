@@ -25,6 +25,9 @@ function Home() {
           <Link className={auth.user ? "link" : "link-none"}  to="/todo">
             Todo
           </Link>
+          <Link className={auth.user ? "link" : "link-none"}  to="/error">
+            Error
+          </Link>
         </div>
     
       </div>

@@ -6,10 +6,11 @@ import RegisterApp from "./pages/RegisterApp";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Todo from "./Redux/Todo/Todo";
-
+import ErrorSource from "./errorBoundary/ErrorSource";
 import { RequireAuth } from "./route/RequireAuth";
 import { AuthProvider } from "./route/Auth";
 import Welcome from "./pages/Welcome";
+import ErrorBoundaries from "./errorBoundary/ErrorBoundaries";
 
 function App() {
   return (
@@ -19,12 +20,8 @@ function App() {
 
         <Routes>
           <Route path="/" />
-     
-          <Route
-            path="login"
-            element={<Login />}
-         
-          />
+
+          <Route path="login" element={<Login />} />
           <Route path="register" element={<RegisterApp />} />
 
           <Route
@@ -32,6 +29,17 @@ function App() {
             element={
               <RequireAuth>
                 <Welcome />
+              </RequireAuth>
+            }
+          />
+
+          <Route
+            path="error"
+            element={
+              <RequireAuth>
+                <ErrorBoundaries>
+                  <ErrorSource />
+                </ErrorBoundaries>
               </RequireAuth>
             }
           />
