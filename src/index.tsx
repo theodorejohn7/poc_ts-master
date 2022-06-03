@@ -21,11 +21,9 @@ root.render(
     <Provider store={store}>
       <BrowserRouter>
         <ThemeProvider theme={theme}>
-          {/* <App /> */}
+          <App />
 
-          {/* <Antd1 /> */}
-          <TodoAnt />
-        {/* <Todo /> */}
+       
         </ThemeProvider>
       </BrowserRouter>
     </Provider>

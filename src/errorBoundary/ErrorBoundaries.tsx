@@ -26,7 +26,7 @@ export default class ErrorBoundaries extends Component<any, any> {
         {this.state.isErrorOccured ? (
           <div>
             {" "}
-            <p>
+            <p style={{ color: 'red' }}>
               {" "}
               Oops Something went wrong <br />
               Try again after some time{" "}

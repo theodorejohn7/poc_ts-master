@@ -11,6 +11,7 @@ import { RequireAuth } from "./route/RequireAuth";
 import { AuthProvider } from "./route/Auth";
 import Welcome from "./pages/Welcome";
 import ErrorBoundaries from "./errorBoundary/ErrorBoundaries";
+import TodoAnt from "./Redux/Todo/TodoAnt";
 
 function App() {
   return (
@@ -49,6 +50,15 @@ function App() {
             element={
               <RequireAuth>
                 <Todo />
+              </RequireAuth>
+            }
+          />
+
+          <Route
+            path="todoant"
+            element={
+              <RequireAuth>
+                <TodoAnt />
               </RequireAuth>
             }
           />
