@@ -69,9 +69,11 @@ const FooterApp: React.FC = () => {
           <h2 style={{ color: "white" }}>Welcome to Our Application</h2>{" "}
         </Header>
         <Content style={{ margin: "0 16px" }}>
-          {/*           
-        <Route   path="/" element={Dashboard()} />
-              <Route path="/meseros" element={Meseros()} /> */}
+            <div style={{display:"inline-block"}}>
+            <h1 style={{color:'black',borderRadius:'20px',boxShadow: '10px 10px 5px 0px rgba(0,0,0,0.75)', padding:'20px',border:'2px solid black',marginTop:'25vh'}}> Kindly use the menu bar available at right side <br /> Have a Great Day ahead </h1>
+
+            </div>
+       
 
           <Routes>
             <Route path="login" element={<Login />} />
@@ -118,7 +120,7 @@ const FooterApp: React.FC = () => {
         </Content>
 
         <Footer style={{ textAlign: "center", backgroundColor:'rgb(14, 15, 46)',color:'white' }}>
-          Ant Design ©2018 Created by Theo
+          Ant Design ©2022 Created by Theo
         </Footer>
       </Layout>
 
