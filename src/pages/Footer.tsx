@@ -70,7 +70,7 @@ const FooterApp: React.FC = () => {
         </Header>
         <Content style={{ margin: "0 16px" }}>
             <div style={{display:"inline-block"}}>
-            <h1 style={{color:'black',borderRadius:'20px',boxShadow: '10px 10px 5px 0px rgba(0,0,0,0.75)', padding:'20px',border:'2px solid black',marginTop:'25vh'}}> Kindly use the menu bar available at right side <br /> Have a Great Day ahead </h1>
+            {/* <h1 style={{color:'black',borderRadius:'20px',boxShadow: '10px 10px 5px 0px rgba(0,0,0,0.75)', padding:'20px',border:'2px solid black',marginTop:'25vh'}}> Kindly use the menu bar available at right side <br /> Have a Great Day ahead </h1> */}
 
             </div>
        
