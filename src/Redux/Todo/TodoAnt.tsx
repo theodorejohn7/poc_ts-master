@@ -121,21 +121,36 @@ const TodoAnt = () => {
   return (
     <div style={{ marginLeft: "15px" }}>
       <h1>Welcome</h1>
+
+      <div
+        style={{
+          padding: "25px",
+          marginBottom: "30px",
+          backgroundColor: "skyBlue",
+          boxShadow: "20px 20px 10px lightpink",
+          borderRadius: "30px",
+        }}
+      >
+        <h2 style={{ display: "inline" }}> Custom Date Picker </h2>
+        <DatePickerAntd />
+
+        <h2 style={{ display: "inline" }}> AntD Date Picker </h2>
+        <DatePicker />
+      </div>
+
       <button onClick={clickHandler}> List All Tasks</button>
 
-      <h2 style={{ marginTop: "75px" }}>Custom Date Picker</h2>
-      <DatePickerAntd />
-      <br />
-      <h2>AntD Date Picker</h2>
-      <DatePicker />
-
-      <h2 style={{ marginTop: "75px" }}>Custom Table Component</h2>
-      <TableAntd columns={columns} data={alltodos} />
+      {checkTodo() && (
+        <h2 style={{ marginTop: "75px" }}>Custom Table Component</h2>
+      )}
+      {checkTodo() && <TableAntd columns={columns} data={alltodos} />}
       <br />
 
-      <h2>AntD Table Component</h2>
+      {checkTodo() && <h2>AntD Table Component</h2>}
 
-      <Table columns={checkTodo() && columns} dataSource={alltodos} />
+      {checkTodo() && (
+        <Table columns={checkTodo() && columns} dataSource={alltodos} />
+      )}
     </div>
   );
 };

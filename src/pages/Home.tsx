@@ -6,7 +6,6 @@ function Home() {
  
 
   return (
-    //   <h1>Welcome</h1>
  
     <nav className="header-wrapper">
       <div className="header">

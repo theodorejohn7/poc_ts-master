@@ -50,7 +50,23 @@ hr {
   height: 0;
   overflow: visible;
 }
-h1,
+h1{
+  color: rgba(255, 255, 255, 0.85);
+
+}
+/* 
+ant-menu
+
+
+.ant-menu-submenu-selected{
+   background-color: red;
+ } */
+ 
+ .new_style{
+   /* border-radius: 15px; */
+  /* style={{borderRadius:'15px'}} */
+ }
+
 h2,
 h3,
 h4,
@@ -58,7 +74,7 @@ h5,
 h6 {
   margin-top: 0;
   margin-bottom: 0.5em;
-  color: rgba(16, 14, 124, 0.85);
+  color: rgba(0, 0, 0, 0.85);
   font-weight: 500;
 }
 p {

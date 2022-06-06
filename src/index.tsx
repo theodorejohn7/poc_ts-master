@@ -14,8 +14,9 @@ import Todo from "./Redux/Todo/Todo";
 import Antd1 from "./Redux/Todo/Antd1";
 import AntTest from "./test/AntTest";
 import { DatePickerAntd } from "./antd/customComponents/DatePickerAntd";
-
+import Menubar from "./antd/customComponents/Menubar";
 import { DatePicker as AntdDatePicker } from "antd";  
+import FooterApp from "./pages/Footer";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -25,8 +26,10 @@ root.render(
     <Provider store={store}>
       <BrowserRouter>
         <ThemeProvider theme={theme}>
-          <App />
+        {/* <FooterApp /> */}
 
+          <App />
+{/* <Menubar /> */}
 {/* <AntTest /> */}
 {/* <TodoAnt /> */}
        {/* <AntdDatePicker /> */}

@@ -12,14 +12,17 @@ import { AuthProvider } from "./route/Auth";
 import Welcome from "./pages/Welcome";
 import ErrorBoundaries from "./errorBoundary/ErrorBoundaries";
 import TodoAnt from "./Redux/Todo/TodoAnt";
+import NewMenuBar from "./antd/customComponents/NewMenuBar";
+import FooterApp from "./pages/Footer";
 
 function App() {
   return (
     <AuthProvider>
       <div className="App">
-        <Home />
-
-        <Routes>
+        {/* <Home /> */}
+{/* <NewMenuBar /> */}
+<FooterApp />
+        {/* <Routes>
           <Route path="/" />
 
           <Route path="login" element={<Login />} />
@@ -62,7 +65,7 @@ function App() {
               </RequireAuth>
             }
           />
-        </Routes>
+        </Routes> */}
       </div>
     </AuthProvider>
   );
