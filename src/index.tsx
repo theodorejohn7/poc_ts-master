@@ -17,7 +17,7 @@ import { DatePickerAntd } from "./antd/customComponents/DatePickerAntd";
 import Menubar from "./antd/customComponents/Menubar";
 import { DatePicker as AntdDatePicker } from "antd";  
 import FooterApp from "./pages/Footer";
-
+import EditPage from "./wysiwyg/EditPage"
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
@@ -27,8 +27,8 @@ root.render(
       <BrowserRouter>
         <ThemeProvider theme={theme}>
         {/* <FooterApp /> */}
-
-          <App />
+<EditPage />
+          {/* <App /> */}
 {/* <Menubar /> */}
 {/* <AntTest /> */}
 {/* <TodoAnt /> */}
